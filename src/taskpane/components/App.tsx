@@ -24,12 +24,14 @@ const App = ({ title, isOfficeInitialized }: AppProps) => {
   const renderDownload = () => {
     const isOfficeDesktop = () => Office && Office.context && Office.context.platform.toString() === "OfficeOnline";
     if (isOfficeDesktop()) {
-      <Download
-        loading={downloading}
-        fileName={fileName}
-        cts={source}
-        onDownloadFinish={() => setDownloading(false)}
-      />;
+      return (
+        <Download
+          loading={downloading}
+          fileName={fileName}
+          cts={source}
+          onDownloadFinish={() => setDownloading(false)}
+        />
+      );
     }
     return <DownloadDesktop fileName={fileName} loading={downloading} onDownloadFinish={() => setDownloading(false)} />;
   };

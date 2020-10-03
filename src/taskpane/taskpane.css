@@ -31,7 +31,7 @@ ul {
   width: 100%;
 }
 
-.ms__download span {
+.ms__download a {
   font-size: 20px;
   color: #214d57;
   cursor: pointer;
