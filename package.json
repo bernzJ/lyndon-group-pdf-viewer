@@ -31,7 +31,6 @@
     "core-js": "^3.6.5",
     "dropbox": "^6.0.2",
     "es6-promise": "^4.2.8",
-    "file-saver": "^2.0.2",
     "office-ui-fabric-react": "^7.144.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
