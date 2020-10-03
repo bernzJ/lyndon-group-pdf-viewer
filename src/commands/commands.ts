@@ -10,12 +10,14 @@ Office.onReady(() => {
 });
 
 /**
- * @deprecated implement this.
  * Shows a notification when the add-in command is executed.
  * @param event
  */
-function openPDF(pdf: any) {
-  console.log(pdf);
+function action(event: Office.AddinCommands.Event) {
+  // Your code goes here
+
+  // Be sure to indicate when the add-in command function is complete
+  event.completed();
 }
 
 function getGlobal() {
@@ -31,4 +33,4 @@ function getGlobal() {
 const g = getGlobal() as any;
 
 // the add-in command functions need to be available in global scope
-g.openPDF = openPDF;
+g.action = action;

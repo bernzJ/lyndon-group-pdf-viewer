@@ -31,8 +31,10 @@ ul {
   width: 100%;
 }
 
-.ms__download a {
+.ms__download span {
   font-size: 20px;
+  color: #214d57;
+  cursor: pointer;
 }
 
 .ms-welcome__main {

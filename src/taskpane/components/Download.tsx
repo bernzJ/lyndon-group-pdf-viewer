@@ -22,14 +22,15 @@ export default function Download({ fileName, loading, onDownloadFinish, cts }: D
     let didCancel = false;
     const download = async () => {
       try {
-        const meta = await dbx.filesDownload({
+        const meta: any = await dbx.filesDownload({
           path: `/Ideal Image/${fileName}.pdf`
         });
         if (meta.status !== 200) {
           throw new Error(meta.result);
         }
+        const blob = URL.createObjectURL(meta.result.fileBlob);
         const result = await axios({
-          url: URL.createObjectURL(meta.result.fileBlob),
+          url: blob,
           responseType: "blob",
           onDownloadProgress(progressEvent) {
             setPercentage(Math.round((progressEvent.loaded / progressEvent.total) * 100));
@@ -39,6 +40,8 @@ export default function Download({ fileName, loading, onDownloadFinish, cts }: D
           },
           cancelToken: cts.token
         });
+        URL.revokeObjectURL(blob);
+        //@TODO: check if this leaks.
         setMessage(
           <a
             href={URL.createObjectURL(new Blob([result.data], { type: "application/pdf" }))}
@@ -48,6 +51,7 @@ export default function Download({ fileName, loading, onDownloadFinish, cts }: D
             {meta.result.name}
           </a>
         );
+        URL.revokeObjectURL(blob);
       } catch (error) {
         switch (true) {
           case error.error !== undefined: {

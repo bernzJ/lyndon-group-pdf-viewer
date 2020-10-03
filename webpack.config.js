@@ -7,7 +7,7 @@ const webpack = require("webpack");
 
 const { token } = require("./token.json");
 const urlDev = "https://localhost:3000/";
-const urlProd = "https://github.com/bernzJ/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProd = "https://lyndon.z13.web.core.windows.net/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
 module.exports = async (env, options) => {
   const dev = options.mode === "development";
@@ -25,7 +25,8 @@ module.exports = async (env, options) => {
         'react-hot-loader/patch',
         './src/taskpane/index.tsx',
       ],
-      commands: './src/commands/commands.ts'
+      commands: './src/commands/commands.ts',
+      pdf: "./src/dialogs/pdf.tsx",
     },
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"]
@@ -84,6 +85,11 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["commands"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "pdf.html",
+        template: "./src/dialogs/pdf.html",
+        chunks: ["polyfill", "pdf"]
       }),
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"]

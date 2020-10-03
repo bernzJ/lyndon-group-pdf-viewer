@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>001365d8-c426-4d69-ba15-1f8ea89ead4e</Id>
-  <Version>1.0.0.0</Version>
-  <ProviderName>Benzi</ProviderName>
+  <Version>1.0.0.3</Version>
+  <ProviderName>Microsoft</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Lyndon"/>
   <Description DefaultValue="Manage cell download via dropbox."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-  <SupportUrl DefaultValue="https://github.com/bernzJ"/>
+  <SupportUrl DefaultValue="https://lyndon.z13.web.core.windows.net"/>
   <AppDomains>
-    <AppDomain>https://github.com/bernzJ</AppDomain>
+    <AppDomain>https://lyndon.z13.web.core.windows.net</AppDomain>
+    <AppDomain>https://www.dropbox.com</AppDomain>
+    <AppDomain>https://api.dropboxapi.com</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
